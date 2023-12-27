@@ -53,13 +53,13 @@ persistence:
 global:
   membership:
     maxJoinDuration: 30s
-    broadcastAddress: "127.0.0.1"
+    broadcastAddress: "0.0.0.0"
   pprof:
     port: 7936
   metrics:
     prometheus:
-#      # specify framework to use new approach for initializing metrics and/or use opentelemetry
-#      framework: "opentelemetry"
+      #      # specify framework to use new approach for initializing metrics and/or use opentelemetry
+      #      framework: "opentelemetry"
       framework: "tally"
       timerType: "histogram"
       listenAddress: "127.0.0.1:8000"
@@ -69,26 +69,26 @@ services:
     rpc:
       grpcPort: 7233
       membershipPort: 6933
-      bindOnLocalHost: true
+      bindOnIP: "0.0.0.0"
       httpPort: 7243
 
   matching:
     rpc:
       grpcPort: 7235
       membershipPort: 6935
-      bindOnLocalHost: true
+      bindOnIP: "0.0.0.0"
 
   history:
     rpc:
       grpcPort: 7234
       membershipPort: 6934
-      bindOnLocalHost: true
+      bindOnIP: "0.0.0.0"
 
   worker:
     rpc:
       grpcPort: 7239
       membershipPort: 6939
-      bindOnLocalHost: true
+      bindOnIP: "0.0.0.0"
 
 clusterMetadata:
   enableGlobalNamespace: false

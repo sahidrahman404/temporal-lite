@@ -1,0 +1,4 @@
+dbs:
+  - path: /data/temporal_data
+    replicas:
+      - url: ${REPLICA_URL}

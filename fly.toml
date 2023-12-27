@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for temporal-lite on 2023-12-27T18:23:40+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "temporal-lite"
+primary_region = "sin"
+
+[build]
+
+[env]
+  PORT = "7233"
+
+[[mounts]]
+  source = "temporal_data"
+  destination = "/data"
+  auto_extend_size_threshold = 0
+
+[http_service]
+  internal_port = 7233
+  force_https = true
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
